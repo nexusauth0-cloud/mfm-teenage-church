@@ -45,7 +45,6 @@ export const weeklyActivities: Activity[] = [
     description:
       'Our main weekly gathering — vibrant praise, powerful word and teenage fellowship with God.',
     day: 'Sunday',
-    time: '8:00 AM – 11:00 AM',
     location: 'Teenage Church Auditorium',
     category: 'Service',
   },
@@ -55,7 +54,6 @@ export const weeklyActivities: Activity[] = [
     description:
       'Deep-dive sessions into the Word of God, building a solid biblical foundation.',
     day: 'Wednesday',
-    time: '4:30 PM – 6:00 PM',
     location: 'Teenage Church Auditorium',
     category: 'Bible Study',
   },
@@ -65,7 +63,6 @@ export const weeklyActivities: Activity[] = [
     description:
       'Corporate prayer, intercession and spiritual warfare for the teenage generation.',
     day: 'Friday',
-    time: '5:00 PM – 7:00 PM',
     location: 'Teenage Church Auditorium',
     category: 'Prayer',
   },
@@ -74,7 +71,6 @@ export const weeklyActivities: Activity[] = [
     name: 'Choir Practice',
     description: 'Voice training and rehearsal of praise ministration songs for services.',
     day: 'Saturday',
-    time: '2:00 PM – 4:00 PM',
     location: 'Teenage Church Auditorium',
     category: 'Practice',
   },
@@ -83,7 +79,6 @@ export const weeklyActivities: Activity[] = [
     name: 'Drama Rehearsal',
     description: 'Script reading, acting drills and stage practice for the drama unit.',
     day: 'Saturday',
-    time: '3:00 PM – 5:00 PM',
     location: 'Teenage Church Hall',
     category: 'Practice',
   },
@@ -92,7 +87,6 @@ export const weeklyActivities: Activity[] = [
     name: 'Media Team Meeting',
     description: 'Planning of media coverage, social media updates and content creation.',
     day: 'Saturday',
-    time: '4:00 PM – 5:00 PM',
     location: 'Media Room',
     category: 'Meeting',
   },
@@ -101,7 +95,6 @@ export const weeklyActivities: Activity[] = [
     name: 'Leadership Meeting',
     description: 'Meeting of teenage leaders for planning, coordination and mentoring.',
     day: 'Saturday',
-    time: '5:00 PM – 6:30 PM',
     location: 'Teenage Church Auditorium',
     category: 'Meeting',
   },
@@ -163,28 +156,6 @@ export const featuredEvent: EventItem = {
 
 export const upcomingEvents: EventItem[] = [
   featuredEvent,
-  {
-    id: 'teen-rally',
-    title: 'Teenagers\' Fire Rally',
-    date: 'October 10',
-    time: '9:00 AM – 3:00 PM',
-    location: 'MFM Teenage Church, Gwagwalada Abuja',
-    description:
-      'A high-energy gathering of teenagers across the region for prayer, worship and revival.',
-    cta: { label: 'Register', to: '/contact' },
-    category: 'Prayer',
-  },
-  {
-    id: 'excellence-summit',
-    title: 'Excellence Summit',
-    date: 'November 14',
-    time: '10:00 AM – 2:00 PM',
-    location: 'MFM Teenage Church, Gwagwalada Abuja',
-    description:
-      'Academic and life-skills empowerment programme for teenagers — exams, careers and destiny.',
-    cta: { label: 'Register', to: '/contact' },
-    category: 'Special Programmes',
-  },
 ]
 
 export interface Ministry {
@@ -268,44 +239,14 @@ export interface Message {
 
 export const messages: Message[] = [
   {
-    id: 'purpose-driven-teen',
-    title: 'A Purpose-Driven Teenager',
-    speaker: 'Pastor (Mrs.) M. Adebayo',
+    id: 'messages-coming-soon',
+    title: 'Messages Coming Soon',
+    speaker: 'MFM Teenage Church',
     type: 'Sermon',
     description:
-      'Discovering God\'s assignment for your life as a teenager in this generation.',
-    duration: '45 min',
-    date: 'August 2026',
-  },
-  {
-    id: 'word-power',
-    title: 'The Power of the Word',
-    speaker: 'Bro. S. Okafor',
-    type: 'Bible Study',
-    description:
-      'Practical keys to studying, memorising and living by the Word of God daily.',
-    duration: '60 min',
-    date: 'July 2026',
-  },
-  {
-    id: 'devotional-fire',
-    title: 'Daily Devotional: Fresh Fire',
-    speaker: 'Teenage Church Team',
-    type: 'Devotional',
-    description:
-      'Short, spirit-filled devotional readings to start each day with God.',
-    duration: '5 min',
-    date: 'Ongoing',
-  },
-  {
-    id: 'stand-strong',
-    title: 'Stand Strong in a World of Pressure',
-    speaker: 'Deaconess T. Bello',
-    type: 'Encouragement',
-    description:
-      'An encouraging word for teenagers navigating peer pressure, school and faith.',
-    duration: '25 min',
-    date: 'June 2026',
+      'Official sermons, Bible studies and devotionals will be published here once approved by church leadership.',
+    duration: '—',
+    date: '',
   },
 ]
 
@@ -385,19 +326,14 @@ export const mfmFamily: { levels: FamilyLevel[]; departments: FamilyDepartment[]
 }
 
 export const contact = {
-  phone: '+234 800 000 0000',
-  whatsapp: '+234 800 000 0000',
-  email: 'teenagechurch@mfmregion7.org',
+  phone: 'Contact details coming soon',
+  whatsapp: 'Contact details coming soon',
+  email: 'Contact details coming soon',
   address: 'Along University of Abuja Teaching Hospital, Gwagwalada Road, Abuja',
   serviceTimes: [
-    { label: 'Teenage Church Service', time: 'Sundays · 8:00 AM' },
-    { label: 'Bible Study', time: 'Wednesdays · 4:30 PM' },
-    { label: 'Prayer Meeting', time: 'Fridays · 5:00 PM' },
+    { label: 'Teenage Church Service', time: 'Schedule to be confirmed' },
+    { label: 'Bible Study', time: 'Schedule to be confirmed' },
+    { label: 'Prayer Meeting', time: 'Schedule to be confirmed' },
   ],
-  socials: [
-    { label: 'Instagram', handle: '@mfmteenagechurch' },
-    { label: 'Facebook', handle: 'MFM Teenage Church' },
-    { label: 'YouTube', handle: 'MFM Teenage Church' },
-    { label: 'TikTok', handle: '@mfmteenagechurch' },
-  ],
+  socials: [] as { label: string; handle: string }[],
 } as const

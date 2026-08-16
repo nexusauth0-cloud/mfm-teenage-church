@@ -7,27 +7,34 @@ import { FacebookIcon, InstagramIcon, YoutubeIcon } from '../components/ui/Socia
 import { contact, site } from '../data/content'
 import { usePageMeta } from '../hooks/usePageMeta'
 
+const hasPhone = contact.phone.startsWith('+')
+const hasEmail = contact.email.includes('@')
+
 const contactChannels = [
   {
     icon: Phone,
     title: 'Phone',
     value: contact.phone,
-    hint: 'Call us during office hours',
-    action: { label: 'Call Now', href: `tel:${contact.phone.replace(/\s/g, '')}` },
+    hint: hasPhone ? 'Call us during office hours' : 'Official number pending confirmation',
+    action: hasPhone
+      ? { label: 'Call Now', href: `tel:${contact.phone.replace(/\s/g, '')}` }
+      : undefined,
   },
   {
     icon: MessageCircle,
     title: 'WhatsApp',
     value: contact.whatsapp,
-    hint: 'Fastest way to reach us',
-    action: { label: 'Chat on WhatsApp', href: `https://wa.me/${contact.whatsapp.replace(/\D/g, '')}` },
+    hint: hasPhone ? 'Fastest way to reach us' : 'Official number pending confirmation',
+    action: hasPhone
+      ? { label: 'Chat on WhatsApp', href: `https://wa.me/${contact.whatsapp.replace(/\D/g, '')}` }
+      : undefined,
   },
   {
     icon: Mail,
     title: 'Email',
     value: contact.email,
-    hint: 'For inquiries & registration',
-    action: { label: 'Send Email', href: `mailto:${contact.email}` },
+    hint: hasEmail ? 'For inquiries & registration' : 'Official email pending confirmation',
+    action: hasEmail ? { label: 'Send Email', href: `mailto:${contact.email}` } : undefined,
   },
   {
     icon: MapPin,
@@ -38,11 +45,13 @@ const contactChannels = [
   },
 ]
 
-const socials = [
-  { icon: InstagramIcon, name: 'Instagram', handle: contact.socials[0].handle },
-  { icon: FacebookIcon, name: 'Facebook', handle: contact.socials[1].handle },
-  { icon: YoutubeIcon, name: 'YouTube', handle: contact.socials[2].handle },
-]
+const socialIcons = [InstagramIcon, FacebookIcon, YoutubeIcon] as const
+
+const socials = contact.socials.map((s, i) => ({
+  icon: socialIcons[i] ?? InstagramIcon,
+  name: s.label,
+  handle: s.handle,
+}))
 
 export default function ContactPage() {
   usePageMeta(
@@ -80,27 +89,34 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <p className="mt-4 flex-1 text-xs text-slate-500">{c.hint}</p>
-                <div className="mt-5">
-                  <Button href={c.action.href} size="sm" variant="outline">
-                    {c.action.label}
-                  </Button>
-                </div>
+                {c.action && (
+                  <div className="mt-5">
+                    <Button href={c.action.href} size="sm" variant="outline">
+                      {c.action.label}
+                    </Button>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            {socials.map((s) => (
-              <a
-                key={s.name}
-                href="#"
-                className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm text-slate-300 transition-all hover:border-fire-500/50 hover:text-fire-400"
-              >
-                <s.icon className="h-4 w-4" />
-                <span className="font-medium">{s.name}</span>
-                <span className="text-slate-500">· {s.handle}</span>
-              </a>
-            ))}
+            {socials.length > 0 ? (
+              socials.map((s) => (
+                <span
+                  key={s.name}
+                  className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm text-slate-300"
+                >
+                  <s.icon className="h-4 w-4" />
+                  <span className="font-medium">{s.name}</span>
+                  <span className="text-slate-500">· {s.handle}</span>
+                </span>
+              ))
+            ) : (
+              <p className="rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm text-slate-400">
+                Official social media links coming soon
+              </p>
+            )}
           </div>
 
           <div className="mt-16">

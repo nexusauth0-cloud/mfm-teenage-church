@@ -32,14 +32,13 @@ export default function Footer() {
           </p>
           <div className="mt-5 flex gap-3">
             {socialIcons.map(({ key, Icon }) => (
-              <a
+              <span
                 key={key}
-                href="#"
                 aria-label={key}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition-all hover:border-fire-500/50 hover:text-fire-400"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400"
               >
                 <Icon className="h-4 w-4" />
-              </a>
+              </span>
             ))}
           </div>
         </div>
