@@ -60,7 +60,7 @@ export default function ContactPage() {
 
       <section className="section-pad relative pt-4">
         <div className="container-site">
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {contactChannels.map((c, i) => (
               <motion.div
                 key={c.title}
@@ -76,7 +76,7 @@ export default function ContactPage() {
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-display font-bold text-white">{c.title}</h3>
-                    <p className="truncate text-sm text-slate-400">{c.value}</p>
+                    <p className="break-words text-sm text-slate-400">{c.value}</p>
                   </div>
                 </div>
                 <p className="mt-4 flex-1 text-xs text-slate-500">{c.hint}</p>
