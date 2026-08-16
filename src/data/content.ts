@@ -149,12 +149,13 @@ export interface EventItem {
 
 export const featuredEvent: EventItem = {
   id: 'august-programme',
-  title: '29th August Programme',
-  date: 'August 29',
-  time: '9:00 AM – 2:00 PM',
-  location: 'MFM Teenage Church, North Central Region 7, Gwagwalada Abuja',
+  title: 'Stretch Without Snapping',
+  date: 'Saturday, August 29, 2026',
+  time: '7:00 AM',
+  location: 'Mountain of Fire and Miracles Ministries, North Central Region 7, Gwagwalada, Abuja',
   description:
-    'A special teenage programme of praise, the Word and purpose discovery. Invite a friend and come expectant!',
+    'A special teenage programme of prayers, the Word, dance, drama, spoken words and games — with Pastor Paul Ushie, Dr. D.K. Olukoya and other anointed men of God. "Enlarge the place of thy tent... lengthen thy cords, and strengthen thy stakes." — Isaiah 54:2-3',
+  flyer: '/flyers/stretch-without-snapping-full.png',
   cta: { label: 'Register Now', to: '/contact' },
   featured: true,
   category: 'Special Programmes',

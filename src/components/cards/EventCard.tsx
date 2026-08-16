@@ -18,12 +18,12 @@ export default function EventCard({ event, index = 0 }: EventCardProps) {
       transition={{ duration: 0.55, delay: (index % 3) * 0.12, ease: 'easeOut' }}
       className="group flex flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm transition-all duration-300 hover:border-fire-500/40 hover:bg-white/[0.05] hover:shadow-2xl hover:shadow-fire-600/10"
     >
-      <div className="relative">
+      <div className="relative bg-ink-900/60">
         {event.flyer ? (
           <img
             src={event.flyer}
             alt={event.title}
-            className="aspect-[16/9] w-full object-cover"
+            className="mx-auto max-h-[420px] w-auto object-contain"
           />
         ) : (
           <ImagePlaceholder label="Programme flyer coming soon" icon="image" aspect="video" className="rounded-none border-0" />

@@ -8,8 +8,8 @@ import ImagePlaceholder from '../ui/ImagePlaceholder'
 function getNextAug29(): Date {
   const now = new Date()
   const year = now.getMonth() === 7 && now.getDate() <= 29 ? now.getFullYear() : now.getFullYear() + 1
-  const target = new Date(year, 7, 29, 9, 0, 0)
-  return target.getTime() > now.getTime() ? target : new Date(year + 1, 7, 29, 9, 0, 0)
+  const target = new Date(year, 7, 29, 7, 0, 0)
+  return target.getTime() > now.getTime() ? target : new Date(year + 1, 7, 29, 7, 0, 0)
 }
 
 function TimeUnit({ value, label }: { value: number; label: string }) {
@@ -47,7 +47,7 @@ export default function FeaturedEventBanner() {
           <div className="relative grid gap-10 p-8 md:p-12 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:p-16">
             <div>
               <p className="mb-4 inline-flex rounded-full bg-fire-500/15 px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-fire-400 uppercase">
-                Featured Programme
+                Upcoming Programme
               </p>
               <h2 className="font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
                 {featuredEvent.title}
@@ -80,15 +80,25 @@ export default function FeaturedEventBanner() {
             </div>
 
             <div className="flex flex-col gap-5">
-              <ImagePlaceholder
-                label={`${featuredEvent.title} — flyer coming soon`}
-                icon="image"
-                aspect="video"
-                className="shadow-xl shadow-black/40"
-              />
-              <p className="rounded-xl border border-white/[0.08] bg-ink-950/50 px-4 py-3 text-center text-xs text-slate-500">
-                Official programme flyer will appear here soon
-              </p>
+              {featuredEvent.flyer ? (
+                <img
+                  src={featuredEvent.flyer}
+                  alt={`${featuredEvent.title} programme flyer`}
+                  className="mx-auto w-auto max-h-[70vh] rounded-2xl border border-white/10 shadow-xl shadow-black/40"
+                />
+              ) : (
+                <>
+                  <ImagePlaceholder
+                    label={`${featuredEvent.title} — flyer coming soon`}
+                    icon="image"
+                    aspect="video"
+                    className="shadow-xl shadow-black/40"
+                  />
+                  <p className="rounded-xl border border-white/[0.08] bg-ink-950/50 px-4 py-3 text-center text-xs text-slate-500">
+                    Official programme flyer will appear here soon
+                  </p>
+                </>
+              )}
               {passed && (
                 <p className="text-center text-sm font-semibold text-fire-400">
                   This programme is underway — join us!
