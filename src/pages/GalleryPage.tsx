@@ -2,8 +2,14 @@ import { Camera, Images } from 'lucide-react'
 import PageHeader from '../components/ui/PageHeader'
 import ImagePlaceholder from '../components/ui/ImagePlaceholder'
 import { galleryImages } from '../data/content'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function GalleryPage() {
+  usePageMeta(
+    'Gallery | MFM Teenage Church',
+    'Photo gallery of MFM Teenage Church, North Central Region 7, Gwagwalada Abuja — memories from services, programmes and fellowship.',
+  )
+
   return (
     <>
       <PageHeader

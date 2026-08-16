@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion'
 import Button from '../components/ui/Button'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function NotFoundPage() {
+  usePageMeta('Page Not Found | MFM Teenage Church')
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(245,127,23,0.15),transparent_55%)]" />

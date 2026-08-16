@@ -5,6 +5,7 @@ import Button from '../components/ui/Button'
 import LocationCard from '../components/cards/LocationCard'
 import { FacebookIcon, InstagramIcon, YoutubeIcon } from '../components/ui/SocialIcons'
 import { contact, site } from '../data/content'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const contactChannels = [
   {
@@ -44,6 +45,11 @@ const socials = [
 ]
 
 export default function ContactPage() {
+  usePageMeta(
+    'Contact | MFM Teenage Church, Gwagwalada Abuja',
+    'Contact MFM Teenage Church, North Central Region 7, Gwagwalada Abuja — along University of Abuja Teaching Hospital, Gwagwalada Road.',
+  )
+
   return (
     <>
       <PageHeader

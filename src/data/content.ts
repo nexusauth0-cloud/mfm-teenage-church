@@ -26,13 +26,16 @@ export const nav = [
 
 export type Day = 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Monthly'
 
+export type ActivityCategory = 'Service' | 'Bible Study' | 'Prayer' | 'Practice' | 'Meeting' | 'Fellowship'
+
 export interface Activity {
   id: string
   name: string
   description: string
   day: Day
-  time: string
+  time?: string
   location: string
+  category: ActivityCategory
 }
 
 export const weeklyActivities: Activity[] = [
@@ -44,6 +47,7 @@ export const weeklyActivities: Activity[] = [
     day: 'Sunday',
     time: '8:00 AM – 11:00 AM',
     location: 'Teenage Church Auditorium',
+    category: 'Service',
   },
   {
     id: 'wednesday-bible-study',
@@ -53,6 +57,7 @@ export const weeklyActivities: Activity[] = [
     day: 'Wednesday',
     time: '4:30 PM – 6:00 PM',
     location: 'Teenage Church Auditorium',
+    category: 'Bible Study',
   },
   {
     id: 'friday-prayer',
@@ -62,6 +67,7 @@ export const weeklyActivities: Activity[] = [
     day: 'Friday',
     time: '5:00 PM – 7:00 PM',
     location: 'Teenage Church Auditorium',
+    category: 'Prayer',
   },
   {
     id: 'choir-practice',
@@ -70,6 +76,7 @@ export const weeklyActivities: Activity[] = [
     day: 'Saturday',
     time: '2:00 PM – 4:00 PM',
     location: 'Teenage Church Auditorium',
+    category: 'Practice',
   },
   {
     id: 'drama-rehearsal',
@@ -78,6 +85,7 @@ export const weeklyActivities: Activity[] = [
     day: 'Saturday',
     time: '3:00 PM – 5:00 PM',
     location: 'Teenage Church Hall',
+    category: 'Practice',
   },
   {
     id: 'media-meeting',
@@ -86,6 +94,7 @@ export const weeklyActivities: Activity[] = [
     day: 'Saturday',
     time: '4:00 PM – 5:00 PM',
     location: 'Media Room',
+    category: 'Meeting',
   },
   {
     id: 'leadership-meeting',
@@ -94,15 +103,35 @@ export const weeklyActivities: Activity[] = [
     day: 'Saturday',
     time: '5:00 PM – 6:30 PM',
     location: 'Teenage Church Auditorium',
+    category: 'Meeting',
   },
   {
     id: 'fellowship-activities',
     name: 'Fellowship Activities',
     description: 'Games, outings, outreaches and social events that build community.',
     day: 'Monthly',
-    time: 'Varies',
     location: 'Church Premises & Outreach Sites',
+    category: 'Fellowship',
   },
+]
+
+export type ProgrammeCategory =
+  | 'Weekly'
+  | 'Prayer'
+  | 'Bible Study'
+  | 'Fellowship'
+  | 'Special Programmes'
+  | 'Retreats'
+  | 'Outreach'
+
+export const programmeCategories: ProgrammeCategory[] = [
+  'Weekly',
+  'Prayer',
+  'Bible Study',
+  'Fellowship',
+  'Special Programmes',
+  'Retreats',
+  'Outreach',
 ]
 
 export interface EventItem {
@@ -115,6 +144,7 @@ export interface EventItem {
   flyer?: string
   cta: { label: string; to: string }
   featured?: boolean
+  category: ProgrammeCategory
 }
 
 export const featuredEvent: EventItem = {
@@ -127,6 +157,7 @@ export const featuredEvent: EventItem = {
     'A special teenage programme of praise, the Word and purpose discovery. Invite a friend and come expectant!',
   cta: { label: 'Register Now', to: '/contact' },
   featured: true,
+  category: 'Special Programmes',
 }
 
 export const upcomingEvents: EventItem[] = [
@@ -140,6 +171,7 @@ export const upcomingEvents: EventItem[] = [
     description:
       'A high-energy gathering of teenagers across the region for prayer, worship and revival.',
     cta: { label: 'Register', to: '/contact' },
+    category: 'Prayer',
   },
   {
     id: 'excellence-summit',
@@ -150,6 +182,7 @@ export const upcomingEvents: EventItem[] = [
     description:
       'Academic and life-skills empowerment programme for teenagers — exams, careers and destiny.',
     cta: { label: 'Register', to: '/contact' },
+    category: 'Special Programmes',
   },
 ]
 
@@ -212,11 +245,21 @@ export const ministries: Ministry[] = [
   },
 ]
 
+export type MessageCategory = 'Sermon' | 'Bible Study' | 'Devotional' | 'Prayer' | 'Encouragement'
+
+export const messageCategories: MessageCategory[] = [
+  'Sermon',
+  'Bible Study',
+  'Devotional',
+  'Prayer',
+  'Encouragement',
+]
+
 export interface Message {
   id: string
   title: string
   speaker: string
-  type: 'Sermon' | 'Bible Study' | 'Devotional' | 'Encouragement'
+  type: MessageCategory
   description: string
   duration: string
   date: string
@@ -279,6 +322,66 @@ export const galleryImages: GalleryImage[] = [
   { id: 'g5', title: 'Drama Presentation' },
   { id: 'g6', title: 'Fellowship Outing' },
 ]
+
+export interface GrowthPillar {
+  id: string
+  title: string
+  text: string
+  icon: string
+}
+
+export const growCards: GrowthPillar[] = [
+  { id: 'learn', title: 'Learn', icon: 'book', text: 'Grow through God\'s Word.' },
+  { id: 'pray', title: 'Pray', icon: 'flame', text: 'Develop a consistent prayer life.' },
+  { id: 'connect', title: 'Connect', icon: 'users', text: 'Build healthy Christian fellowship.' },
+  { id: 'serve', title: 'Serve', icon: 'wrench', text: 'Discover gifts and serve others.' },
+  { id: 'lead', title: 'Lead', icon: 'crown', text: 'Develop responsible Christian leadership.' },
+]
+
+export const foundationPillars: GrowthPillar[] = [
+  { id: 'learn', title: 'Learn', icon: 'book', text: 'Grow through God\'s Word.' },
+  { id: 'pray', title: 'Pray', icon: 'flame', text: 'Develop a consistent prayer life.' },
+  { id: 'connect', title: 'Connect', icon: 'users', text: 'Build healthy Christian fellowship.' },
+  { id: 'discover', title: 'Discover', icon: 'compass', text: 'Understand purpose and develop character.' },
+  { id: 'serve', title: 'Serve', icon: 'wrench', text: 'Discover gifts and serve others.' },
+  { id: 'lead', title: 'Lead', icon: 'crown', text: 'Develop responsible Christian leadership.' },
+]
+
+export interface FamilyLevel {
+  name: string
+  note: string
+  current?: boolean
+}
+
+export interface FamilyDepartment {
+  name: string
+  note: string
+  current?: boolean
+}
+
+export const mfmFamily: { levels: FamilyLevel[]; departments: FamilyDepartment[] } = {
+  levels: [
+    {
+      name: 'MFM Worldwide',
+      note: 'The global Mountain of Fire and Miracles Ministries family.',
+    },
+    {
+      name: 'North Central Region 7',
+      note: 'Our regional church family here in Abuja.',
+    },
+    {
+      name: 'Teenage Church',
+      note: 'This website — the teenage department you are visiting now.',
+      current: true,
+    },
+  ],
+  departments: [
+    { name: 'Adult Church', note: 'The main congregational service of the regional church.' },
+    { name: 'Teenage Church', note: 'The teenage department — represented by this website.', current: true },
+    { name: 'Youth Church', note: 'The youth department of the regional church.' },
+    { name: 'Children Church', note: 'The children\'s department of the regional church.' },
+  ],
+}
 
 export const contact = {
   phone: '+234 800 000 0000',

@@ -42,7 +42,7 @@ export default function ActivityCard({ activity, index = 0 }: ActivityCardProps)
       <div className="mt-5 space-y-2 border-t border-white/[0.06] pt-4 text-sm text-slate-400">
         <p className="flex items-center gap-2">
           <Clock className="h-4 w-4 text-fire-500" />
-          {activity.time}
+          {activity.time ?? 'Time to be announced'}
         </p>
         <p className="flex items-center gap-2">
           <MapPin className="h-4 w-4 text-fire-500" />

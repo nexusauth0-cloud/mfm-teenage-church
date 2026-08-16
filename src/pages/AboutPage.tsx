@@ -4,7 +4,9 @@ import PageHeader from '../components/ui/PageHeader'
 import SectionTitle from '../components/ui/SectionTitle'
 import Button from '../components/ui/Button'
 import ImagePlaceholder from '../components/ui/ImagePlaceholder'
-import { site } from '../data/content'
+import GrowthCard from '../components/ui/GrowthCard'
+import { foundationPillars, site } from '../data/content'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const missionPoints = [
   { icon: Flame, title: 'Spiritual Growth', text: 'Deepening every teenager’s walk with the Holy Spirit.' },
@@ -16,6 +18,11 @@ const missionPoints = [
 ]
 
 export default function AboutPage() {
+  usePageMeta(
+    'About Us | MFM Teenage Church, North Central Region 7',
+    'Learn about MFM Teenage Church, North Central Region 7, Gwagwalada Abuja — our vision, foundation and mission to raise champions for Christ.',
+  )
+
   return (
     <>
       <PageHeader
@@ -87,6 +94,24 @@ export default function AboutPage() {
       </section>
 
       <section className="section-pad relative">
+        <div className="container-site">
+          <SectionTitle
+            eyebrow="Our Foundation"
+            title={<>Rooted in Christ. Growing in <span className="text-gradient-fire">Faith</span>. Raising Champions.</>}
+            description="The Teenage Church is part of the wider MFM family, focused on helping teenagers grow spiritually and personally."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {foundationPillars.map((pillar, i) => (
+              <GrowthCard key={pillar.id} pillar={pillar} index={i} />
+            ))}
+          </div>
+          <p className="mt-8 text-center text-sm text-slate-500">
+            These are the values of our teenage community — not official MFM slogans.
+          </p>
+        </div>
+      </section>
+
+      <section className="section-pad relative border-t border-white/[0.05] bg-ink-900/40">
         <div className="container-site">
           <SectionTitle
             eyebrow="Our Mission"

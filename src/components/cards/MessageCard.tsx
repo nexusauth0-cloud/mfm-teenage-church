@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Clock, Headphones, PlayCircle } from 'lucide-react'
+import { Clock, HandHeart, Headphones, PlayCircle } from 'lucide-react'
 import type { Message } from '../../data/content'
 
 interface MessageCardProps {
@@ -11,6 +11,7 @@ const typeIcon: Record<Message['type'], typeof PlayCircle> = {
   Sermon: PlayCircle,
   'Bible Study': Headphones,
   Devotional: PlayCircle,
+  Prayer: HandHeart,
   Encouragement: Headphones,
 }
 

@@ -2,6 +2,10 @@ import { motion } from 'framer-motion'
 import { ArrowRight, BookOpen, Compass, Cross, HeartHandshake, Images, Shield, Users } from 'lucide-react'
 import HeroSection from '../components/home/HeroSection'
 import FeaturedEventBanner from '../components/home/FeaturedEventBanner'
+import GrowWithUs from '../components/home/GrowWithUs'
+import MfmFamilySection from '../components/home/MfmFamilySection'
+import FamilyCta from '../components/home/FamilyCta'
+import { usePageMeta } from '../hooks/usePageMeta'
 import SectionTitle from '../components/ui/SectionTitle'
 import Button from '../components/ui/Button'
 import EventCard from '../components/cards/EventCard'
@@ -20,6 +24,11 @@ const aboutPoints = [
 ]
 
 export default function HomePage() {
+  usePageMeta(
+    'MFM Teenage Church | Raising Champions for Christ',
+    'MFM Teenage Church, North Central Region 7, Gwagwalada Abuja — raising champions for Christ through faith, discipleship, friendship and purpose.',
+  )
+
   return (
     <>
       <HeroSection />
@@ -74,6 +83,9 @@ export default function HomePage() {
       {/* Featured event */}
       <FeaturedEventBanner />
 
+      {/* Grow with us */}
+      <GrowWithUs />
+
       {/* Weekly activities */}
       <section className="section-pad relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.06),transparent_60%)]" />
@@ -118,6 +130,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Our MFM family */}
+      <MfmFamilySection />
 
       {/* Upcoming programmes */}
       <section className="section-pad relative">
@@ -197,6 +212,9 @@ export default function HomePage() {
           <LocationCard />
         </div>
       </section>
+
+      {/* Part of the MFM family */}
+      <FamilyCta />
 
       {/* CTA */}
       <section className="section-pad relative overflow-hidden">

@@ -1,11 +1,28 @@
 import { CalendarDays, Clock, MapPin } from 'lucide-react'
 import PageHeader from '../components/ui/PageHeader'
 import { weeklyActivities, type Day } from '../data/content'
+import { usePageMeta } from '../hooks/usePageMeta'
 import { cn } from '../lib/utils'
 
 const dayOrder: Day[] = ['Sunday', 'Wednesday', 'Friday', 'Saturday']
 
+const categoryStyles: Record<string, string> = {
+  Service: 'bg-fire-500/15 text-fire-400 border-fire-500/25',
+  'Bible Study': 'bg-violet-500/15 text-violet-400 border-violet-500/25',
+  Prayer: 'bg-sky-500/15 text-sky-400 border-sky-500/25',
+  Practice: 'bg-flame-500/15 text-flame-400 border-flame-500/25',
+  Meeting: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/25',
+  Fellowship: 'bg-amber-500/15 text-amber-400 border-amber-500/25',
+}
+
+const timeLabel = (time: string | undefined) => time ?? 'Time to be announced'
+
 export default function ActivitiesPage() {
+  usePageMeta(
+    'Weekly Activities | MFM Teenage Church',
+    'Weekly activities of MFM Teenage Church, North Central Region 7 — Sunday service, Bible study, prayer meetings, choir, drama, media and leadership.',
+  )
+
   return (
     <>
       <PageHeader
@@ -41,12 +58,20 @@ export default function ActivitiesPage() {
                         key={a.id}
                         className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 transition-all duration-300 hover:border-fire-500/40"
                       >
+                        <span
+                          className={cn(
+                            'mb-3 inline-flex w-fit rounded-full border px-2.5 py-0.5 text-[11px] font-bold tracking-wider uppercase',
+                            categoryStyles[a.category] ?? 'bg-white/10 text-slate-300 border-white/15',
+                          )}
+                        >
+                          {a.category}
+                        </span>
                         <h4 className="font-display font-bold text-white">{a.name}</h4>
                         <p className="mt-2 text-sm leading-relaxed text-slate-400">{a.description}</p>
                         <div className="mt-4 space-y-1.5 text-sm text-slate-400">
                           <p className="flex items-center gap-2">
                             <Clock className="h-4 w-4 text-fire-500" />
-                            {a.time}
+                            {timeLabel(a.time)}
                           </p>
                           <p className="flex items-center gap-2">
                             <MapPin className="h-4 w-4 text-fire-500" />
@@ -67,7 +92,8 @@ export default function ActivitiesPage() {
             </p>
             <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-slate-500">
               Games, outings, outreach and special fellowship events are announced in church and
-              on our social media pages.
+              on our social media pages. Times for future activities will be announced before each
+              gathering.
             </p>
           </div>
         </div>

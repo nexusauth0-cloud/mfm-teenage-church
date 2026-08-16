@@ -33,6 +33,9 @@ export default function EventCard({ event, index = 0 }: EventCardProps) {
             Featured
           </span>
         )}
+        <span className="absolute top-4 right-4 rounded-full border border-white/15 bg-ink-950/70 px-3 py-1 text-xs font-semibold tracking-wide text-slate-300 uppercase backdrop-blur-sm">
+          {event.category}
+        </span>
       </div>
 
       <div className="flex flex-1 flex-col p-6 md:p-7">
